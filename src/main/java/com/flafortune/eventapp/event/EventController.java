@@ -25,8 +25,7 @@ public class EventController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody @Valid Event event) {
-        //TODO fix this
-        eventService.createEvent(EventMapper.toEvent(EventMapper.toEntity(event)));
+        eventService.createEvent(event);
     }
 
 }
