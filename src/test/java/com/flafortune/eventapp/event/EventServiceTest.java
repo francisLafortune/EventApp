@@ -55,10 +55,7 @@ class EventServiceTest extends IntegrationTest {
     @Test
     void createEventWithNameLongerThan32CharactersShouldThrowException() {
         Event event = getEvent("My new Event with a name longer than 32 characters");
-
-        assertThrows(DataIntegrityViolationException.class, () -> {
-            eventService.createEvent(event);
-        });
+        assertThrows(DataIntegrityViolationException.class, () -> eventService.createEvent(event));
     }
-    
+
 }

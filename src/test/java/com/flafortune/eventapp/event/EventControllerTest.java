@@ -61,7 +61,6 @@ class EventControllerTest extends IntegrationTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isCreated());
-        ;
     }
 
     @Test

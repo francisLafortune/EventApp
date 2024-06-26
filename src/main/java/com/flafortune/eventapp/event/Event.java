@@ -1,26 +1,27 @@
 package com.flafortune.eventapp.event;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
-
-import java.time.Instant;
 
 @Data
 public class Event {
 
+
     private Long id;
+
+    @NotBlank(message = "Name is required.")
+    @Size(max = 32, message = "Name length must be 32 characters or less.")
     private String name;
+
+    @NotBlank(message = "Description is required.")
     private String description;
-    private Instant beginTime;
-    private Instant endTime;
 
-    public Event() {
-    }
+    @NotNull(message = "Begin timestamp is required.")
+    private Long beginTimestamp;
 
-    public Event(String name, String description, Instant beginTime, Instant endTime) {
-        this.name = name;
-        this.description = description;
-        this.beginTime = beginTime;
-        this.endTime = endTime;
-    }
+    @NotNull(message = "End timestamp is required.")
+    private Long endTimestamp;
 
 }
