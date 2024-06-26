@@ -21,4 +21,8 @@ public class EventService {
                 .toList();
     }
 
+    public EventEntity createEvent(Event event) {
+        return eventRepository.save(EventMapper.toEntity(event));
+    }
+
 }
