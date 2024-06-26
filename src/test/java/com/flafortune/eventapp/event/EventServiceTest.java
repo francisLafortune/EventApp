@@ -22,12 +22,14 @@ class EventServiceTest extends IntegrationTest {
     private EventService eventService;
 
     private static @NotNull Event getEvent(String name) {
-        return new Event(
-                name,
-                "My new event description",
-                Instant.parse("2024-01-01T16:00:00Z"),
-                Instant.parse("2024-01-01T18:00:00Z")
-        );
+
+        Event event = new Event();
+        event.setName(name);
+        event.setDescription("Event description");
+        event.setBeginTimestamp(Instant.parse("2024-01-01T16:00:00Z").getEpochSecond());
+        event.setEndTimestamp(Instant.parse("2024-01-01T18:00:00Z").getEpochSecond());
+
+        return event;
     }
 
     @Test
@@ -46,7 +48,7 @@ class EventServiceTest extends IntegrationTest {
         List<Event> events = eventService.getEvents();
 
         assertEquals(3, events.size());
-        assertEquals("My new event", events.get(2).getName());
+        assertEquals("My new Event", events.get(2).getName());
         assertEquals(3, entity.getId());
     }
 
@@ -58,13 +60,5 @@ class EventServiceTest extends IntegrationTest {
             eventService.createEvent(event);
         });
     }
-
-    @Test
-    void timeZonesAreProperlyManaged() {
-
-        //TODO
-
-
-    }
-
+    
 }

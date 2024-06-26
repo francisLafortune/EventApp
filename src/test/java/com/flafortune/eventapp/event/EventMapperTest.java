@@ -10,12 +10,14 @@ class EventMapperTest {
 
     @Test
     void eventAreProperlyMappedToEntity() {
-        Event event = new Event(
-                "Event to entity",
-                "Event to entity test",
-                Instant.parse("2024-01-01T16:00:00Z"),
-                Instant.parse("2024-01-01T18:00:00Z")
-        );
+
+        Event event = new Event();
+
+        event.setName("Event to entity");
+        event.setDescription("Event to entity test");
+        event.setBeginTimestamp(Instant.parse("2024-01-01T16:00:00Z").getEpochSecond());
+        event.setEndTimestamp(Instant.parse("2024-01-01T18:00:00Z").getEpochSecond());
+
 
         EventEntity eventEntity = EventMapper.toEntity(event);
         assertEquals("Event to entity", eventEntity.getName());
@@ -36,8 +38,8 @@ class EventMapperTest {
         Event event = EventMapper.toEvent(entity);
         assertEquals("Entity to event", event.getName());
         assertEquals("Entity to event test", event.getDescription());
-        assertEquals(Instant.parse("2024-08-01T16:00:00Z"), event.getBeginTime());
-        assertEquals(Instant.parse("2024-08-01T18:00:00Z"), event.getEndTime());
+        assertEquals(Instant.parse("2024-08-01T16:00:00Z"), Instant.ofEpochSecond(event.getBeginTimestamp()));
+        assertEquals(Instant.parse("2024-08-01T18:00:00Z"), Instant.ofEpochSecond(event.getEndTimestamp()));
     }
 
 }
