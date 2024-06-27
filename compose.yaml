@@ -7,3 +7,10 @@ services:
       - 'POSTGRES_USER=myuser'
     ports:
       - '5432'
+  nginx:
+    image: 'nginx'
+    volumes:
+      - './frontend/dist:/usr/share/nginx/html:ro'
+      - './nginx:/etc/nginx/conf.d:ro'
+    ports:
+      - "80:80"
