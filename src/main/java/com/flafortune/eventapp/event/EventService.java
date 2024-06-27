@@ -1,6 +1,6 @@
 package com.flafortune.eventapp.event;
 
-import com.flafortune.eventapp.ResourceNotFoundException;
+import com.flafortune.eventapp.util.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

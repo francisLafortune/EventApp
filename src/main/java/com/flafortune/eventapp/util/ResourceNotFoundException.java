@@ -1,4 +1,4 @@
-package com.flafortune.eventapp;
+package com.flafortune.eventapp.util;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException() {

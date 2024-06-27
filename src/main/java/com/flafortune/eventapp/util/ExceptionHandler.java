@@ -1,4 +1,4 @@
-package com.flafortune.eventapp;
+package com.flafortune.eventapp.util;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
