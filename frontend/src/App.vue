@@ -39,7 +39,7 @@ function handleError(error) {
 
 function postEvent(eventRequest) {
   //events.value.push(eventRequest)
-  createEvent(eventRequest).then((response) => {
+  createEvent(eventRequest).then(() => {
     initialise();
   }).catch((error) => {
     handleError(error);
