@@ -21,6 +21,11 @@ public class EventController {
         return eventService.getEvents();
     }
 
+    @GetMapping("/{id}")
+    public Event getEvent(@PathVariable Long id) {
+        return eventService.findById(id);
+    }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
