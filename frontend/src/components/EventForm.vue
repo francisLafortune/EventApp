@@ -30,8 +30,8 @@ const isValid = computed(() => validate(eventForm));
     </div>
     <div class="mb-3">
       <label class="form-label" for="beginTime">Début</label>
-      <input id="beginTime" v-model="eventForm.beginTime" :class="{ 'is-invalid': !isValid }"
-             class="form-control" type="datetime-local">
+      <input id="beginTime" v-model="eventForm.beginTime" :class="{ 'is-invalid': !isValid }" class="form-control"
+             type="datetime-local">
       <div v-if="!isValid" id="beginTimeHelp" class="form-text">Le début de l'événement doit
         être avant la
         fin.
@@ -39,9 +39,9 @@ const isValid = computed(() => validate(eventForm));
     </div>
     <div class="mb-3">
       <label class="form-label" for="endTime">Fin</label>
-      <input v-model="eventForm.endTime" :class="{ 'is-invalid': !isValid }" class="form-control"
+      <input id="endTime" v-model="eventForm.endTime" :class="{ 'is-invalid': !isValid }" class="form-control"
              type="datetime-local">
-      <div v-if="!isValid" id="beginTimeHelp" class="form-text">La fin de l'événement doit
+      <div v-if="!isValid" id="endTimeHelp" class="form-text">La fin de l'événement doit
         être après le
         début.
       </div>
